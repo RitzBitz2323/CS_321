@@ -1,0 +1,123 @@
+{
+  "main": {
+    "id": "3dbb45542d71ad8d",
+    "type": "split",
+    "children": [
+      {
+        "id": "323a25d07f88a49a",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Week 10/Monday.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "edde4e3c142760c9",
+    "type": "split",
+    "children": [
+      {
+        "id": "b84f221f63e754ee",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3b71f894016a0db8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "7a494a78fdcb3589",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ef761ec44828dc98",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Week 1/Friday.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8b0f2e1c042baead",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 196
+  },
+  "right": {
+    "id": "d452137217227c18",
+    "type": "split",
+    "children": [
+      {
+        "id": "2ff429fc13132af8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7a6347f906417554",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Week 10/Monday.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "323a25d07f88a49a",
+  "lastOpenFiles": [
+    "Week 10/Monday.md",
+    "Week 3/Friday.md",
+    "Week 3/Wednesday.md",
+    "Week 3/Monday.md",
+    "Week 4/Wednesday.md",
+    "Week 4/Friday.md",
+    "Week 5/Friday.md",
+    "Week 5/Wednesday.md",
+    "Week 6/Wednesday.md",
+    "Week 6/Friday.md"
+  ]
+}

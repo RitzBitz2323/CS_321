@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void shiftRight (int* addr, int pos, int final);
+void Fill(int* addr, int length);
+int FindSortedPos(int* addr, int val, int final);
+void InsertSortPos(int* addr, int pos, int final);
+void printArray(int* array, int length);
+void InsertionSort(int* addr, int length);
+
+
+
+int main() {
+    int length = 5;
+    int* addr = (int*) malloc(length * sizeof(int));
+
+    Fill(addr, length);
+    printArray(addr, length);
+
+    InsertionSort(addr, length);
+    printArray(addr, length);
+}
+
+
+void shiftRight (int* addr, int pos, int final) {
+    for (int i = final - 1; i >= pos; --i) {
+        addr[i + 1] = addr[i];
+        printArray(addr, 5);
+    }
+}
+
+void Fill(int* addr, int length) {
+
+    int j = length;
+    for (int i = 0; i < length; ++i) { 
+          addr[i] = j;
+          j--;
+    } 
+}
+
+int FindSortedPos(int* addr, int val, int final) {
+    int i;
+    for (i = 0; i < final; ++i) {
+        if (addr[i] >= val) {
+            break;
+        }
+    }
+    return i;
+}
+
+
+void InsertSortPos(int* addr, int pos, int final) {
+    int v = addr[pos];
+    int p = FindSortedPos(addr, v, final);
+    shiftRight(addr, p, pos);
+    addr[p] = v;
+}
+
+void printArray(int* array, int length) {
+    for (int i = 0; i < length; ++i) {
+        printf("%d", array[i]);
+
+    }
+    printf("\n");
+}
+
+void InsertionSort(int* addr, int length) {
+    for (int i = 1; i < length; ++i) {
+        InsertSortPos(addr, i, length - 1);
+    } 
+}

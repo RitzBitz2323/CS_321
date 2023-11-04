@@ -1,0 +1,28 @@
+## Signed Binary Numbers
+- *One's Complement*
+	- To negate: invert all bits
+	- Two zeros
+	- Range [ -(2<sup>bits-1</sup> -1),  (2<sup>bits-1</sup> -1) ]
+	- Examples
+		- 97 base 10 = 01100001 base 2
+		- -97 base 10 = 10011110 base 2
+		- -34 + 51
+		- 00100010 - >        11011101 +
+		- 00110011.               00110011
+		-                 00010000. (16)
+		- Take the carry value from the addition and add it to the result
+		- so therefore it becomes 00010001 ( 17 )
+- *Two's Complement*
+	- Invert all bits and add one to negate
+	- Throw away carries
+	- Example
+		- Only one zero
+		- -34 + 51
+		- -34 = 11011110 base 2
+		- 51 = 00110011 base 2
+		- 17 = 00010001
+#### ARM Assembly Language
+- Textbook is based on armv8 presents a pedegogical subset armv8 which it calls LEGv8
+- ARMV8 is a "smallsh" ISA, but still over 1000 instructions, most are variations of one another
+- LEGV8 has about 50 instructions
+	- 

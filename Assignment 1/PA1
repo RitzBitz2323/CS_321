@@ -1,0 +1,94 @@
+// X0 is address of an array of ints
+// X1 is position of array
+// X2 is index of the final element in array 
+// shift_right:
+// SUBI X9 X2 #1
+// B loop 
+// loop:
+// ADD X11 X11 X2
+// SUB X9 X2 X11
+// CBZ insert_sorted
+// ADDI X11 X11 #1 //  
+// B loop
+// // ADDI X11 X11 #1 
+// // ADD X11 X11 X2
+// insert_sorted:
+_______
+// Shift right: This procedure takes three parameters, the address of an array of ints, the index of the final element in the array, and a position in the array.
+ // It overwrites the final element, shifting intermediate elements to the right, leaving a whole at the position.
+// ShiftRight(addr, pos, final):
+//    for i from final - 1 to pos:
+ //   addr[i + 1] = addr[i]
+
+// X0 = address of an array of ints   X1 = a position in the array (i) X2 = index of the final elements in the array 
+shift_right:
+SUBI SP, SP, #24
+STUR X0, [SP, #0]
+STUR X1, [SP, #8]
+STUR X2, [SP, #16]
+
+
+SUBI X9, X2, #1 //X9 (our index) = final position - 1
+loop:
+SUB X10, X9, X1     // subtract our index and the position
+CBZ X10, end_of_loop      // if our index = 0, go to the end, otherwise execute loop body
+
+
+ADDI X11, X9, #1   // X11 = our index + 1
+LSL X11, X11, #3    // X11 = get offset
+ADD X12, X0, X11     // X12  = &addr[i+1]
+
+LSL X13, X9, #3   // X13 = get offset of i
+ADD X14, X0, X13	// X14 = &addr[i]
+
+LDUR X15, [X14, #0]		// NOT SURE ABOUT THIS PART AND NEXT LINE
+STUR X15, [X12, #0]
+
+SUBI X9, X9, #1     // decrement our index
+B loop             // loop 
+end_of_loop:
+
+ADD X0, // NEED MORE CODE HERE
+
+
+LDUR X2, [SP, #16]
+LDUR X1, [SP, #8]
+LDUR X0, [SP, #0]
+ADDI SP, SP, #24
+BR LR
+
+
+
+fill: 
+ADDI X10, X1, #0 // let x10 = length of the array aka x1
+ADDI X11, X0, #0 // let x11 = the beginning of the array aka x0
+SUBI X10, X10, #1 // x10 = x10 - 1 , aka length of the array - 1 
+loop_fill:
+STUR X10, [X11, #0] // stores the x10 value in the array at the x11 position
+ADDI X11, X11, #8 // x11 = x11 + 1
+SUBI X10, X10, #1// x10 = x10 - 1
+CBNZ X10, loop_fill // loops if x10 isnt zero
+BR LR
+
+find_sorted_pos:
+
+
+insertion_sort:
+ADDI X1, X0, #0 // sets x1 = to start of array aka i 
+SUBI X2, X1, #1 // sets x2 to be length of array - 1
+ADDI X1, X1, #1 // x1= x1 + 1 
+loop_insertion_sort:
+SUBI SP, SP, #24 // subtracts from the stack so we can save x0, x1, and x2
+STUR X0, [SP, #16] // saves x0
+STUR X1, [SP, #8] // saves x1
+STUR X2, [SP, #0] // saves x2
+BL insert_sorted_position // branches to insert sorted position
+LDUR X2, [SP, #0] // retrieves x2
+LDUR X1, [SP, #8] // retrieves x1
+LDUR X0, [SP, #16] // retrieves x0
+ADDI SP, SP, #24 // adds back to stack for x0, x1 , and x2
+SUB X10, X1, X2 // let x10 = x1 - x2 to check if not zero
+ADDI X1, X1, #1 // x1 = x1 + 1
+CBNZ X10, loop_insertion_sort // if x10 doesnt equal zero loop
+
+
